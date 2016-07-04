@@ -7,7 +7,10 @@
 //
 
 #import "WebViewJsBridge.h"
+#import "TestBridgeDelegate.h"
 
 @interface TestBridge : WebViewJsBridge
+
+@property id<TestBridgeDelegate> delegate;
 
 @end

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C6B43AB1D2A6091000FFC85 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C6B43A91D2A6091000FFC85 /* Launch Screen.storyboard */; };
+		4C6B43B01D2A7073000FFC85 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6B43AF1D2A7073000FFC85 /* JavaScriptCore.framework */; };
 		BF3C761318EBE1D5006C5249 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3C761218EBE1D5006C5249 /* Foundation.framework */; };
 		BF3C761518EBE1D5006C5249 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3C761418EBE1D5006C5249 /* CoreGraphics.framework */; };
 		BF3C761718EBE1D5006C5249 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3C761618EBE1D5006C5249 /* UIKit.framework */; };
@@ -40,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		4C6B43AA1D2A6091000FFC85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "WebViewJsBridge/Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
+		4C6B43AC1D2A6842000FFC85 /* TestBridgeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestBridgeDelegate.h; sourceTree = "<group>"; };
+		4C6B43AF1D2A7073000FFC85 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		BF3C760F18EBE1D5006C5249 /* WebViewJsBridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebViewJsBridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3C761218EBE1D5006C5249 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BF3C761418EBE1D5006C5249 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -72,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C6B43B01D2A7073000FFC85 /* JavaScriptCore.framework in Frameworks */,
 				BF3C761518EBE1D5006C5249 /* CoreGraphics.framework in Frameworks */,
 				BF3C761718EBE1D5006C5249 /* UIKit.framework in Frameworks */,
 				BF3C761318EBE1D5006C5249 /* Foundation.framework in Frameworks */,
@@ -113,6 +117,7 @@
 		BF3C761118EBE1D5006C5249 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C6B43AF1D2A7073000FFC85 /* JavaScriptCore.framework */,
 				BF3C761218EBE1D5006C5249 /* Foundation.framework */,
 				BF3C761418EBE1D5006C5249 /* CoreGraphics.framework */,
 				BF3C761618EBE1D5006C5249 /* UIKit.framework */,
@@ -175,6 +180,7 @@
 				BF3C764B18EBE231006C5249 /* WebViewJsBridge.js */,
 				BF3C764F18EBE261006C5249 /* TestBridge.h */,
 				BF3C765018EBE261006C5249 /* TestBridge.m */,
+				4C6B43AC1D2A6842000FFC85 /* TestBridgeDelegate.h */,
 			);
 			name = Bridge;
 			sourceTree = "<group>";

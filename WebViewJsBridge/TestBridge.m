@@ -10,12 +10,17 @@
 
 @implementation TestBridge
 
-- (void)test1:(NSArray *)msg {
-  NSLog(@"test1:%@", msg);
+- (void)test1:(NSArray *)data {
+  if (_delegate && [_delegate respondsToSelector:@selector(test1:)]) {
+    NSString *msg = [data firstObject];
+    [_delegate test1:msg];
+  }
 }
 
 - (void)test2 {
-  NSLog(@"test2");
+  if (_delegate && [_delegate respondsToSelector:@selector(test2)]) {
+    [_delegate test2];
+  }
 }
 
 @end

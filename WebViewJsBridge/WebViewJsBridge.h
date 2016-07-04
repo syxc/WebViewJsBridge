@@ -13,11 +13,13 @@
 
 @interface WebViewJsBridge : NSObject<UIWebViewDelegate>
 
-@property (nonatomic, weak) UIWebView *webView;
+@property (weak, nonatomic) UIWebView *webView;
 
 + (instancetype)bridgeForWebView:(UIWebView*)webView webViewDelegate:(NSObject<UIWebViewDelegate>*)webViewDelegate;
 + (instancetype)bridgeForWebView:(UIWebView*)webView webViewDelegate:(NSObject<UIWebViewDelegate>*)webViewDelegate resourceBundle:(NSBundle*)bundle;
 
+- (void)excuteJS:(NSString *)script;
+- (void)excuteJSWithFunction:(NSString *)function;
 - (void)excuteJSWithObj:(NSString *)obj function:(NSString *)function;
 
 @end

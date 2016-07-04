@@ -8,6 +8,7 @@
 
 #import "WebViewJsBridge.h"
 #import <objc/runtime.h>
+#import <JavaScriptCore/JavaScriptCore.h>
 
 @interface WebViewJsBridge ()
 
@@ -57,7 +58,7 @@
       for (int i = 0; i < methodCount; i++) {
         NSString *methodName = [NSString stringWithCString:sel_getName(method_getName(methods[i])) encoding:NSUTF8StringEncoding];
         // 防止隐藏的系统方法名包含“.”导致js报错
-        if ([methodName rangeOfString:@"."].location!=NSNotFound) {
+        if ([methodName rangeOfString:@"."].location != NSNotFound) {
           continue;
         }
         [methodList appendString:@"\""];
@@ -106,7 +107,7 @@
     NSDictionary *argsDic = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:argsData options:kNilOptions error:NULL];
     // convert js array to objc array
     NSMutableArray *args = [NSMutableArray array];
-    for (int i=0; i<[argsDic count]; i++) {
+    for (int i = 0; i < [argsDic count]; i++) {
       [args addObject:[argsDic objectForKey:[NSString stringWithFormat:@"%d", i]]];
     }
     // ignore warning
@@ -135,12 +136,27 @@
 #pragma mark - call js
 
 // 执行js方法
+- (void)excuteJS:(NSString *)script {
+  if (script) {
+    if ([JSContext class]) {
+      JSContext *context = [self.webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+      [context evaluateScript:script];
+    } else {
+      [self.webView stringByEvaluatingJavaScriptFromString:script];
+    }
+  }
+}
+
+- (void)excuteJSWithFunction:(NSString *)function {
+  [self excuteJSWithObj:nil function:function];
+}
+
 - (void)excuteJSWithObj:(NSString *)obj function:(NSString *)function {
   NSString *js = function;
   if (obj) {
     js = [NSString stringWithFormat:@"%@.%@", obj, function];
   }
-  [self.webView stringByEvaluatingJavaScriptFromString:js];
+  [self excuteJS:js];
 }
 
 @end
