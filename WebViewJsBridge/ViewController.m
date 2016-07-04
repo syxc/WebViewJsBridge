@@ -38,7 +38,7 @@
 
 - (void)test2 {
   NSLog(@"test2");
-  [_bridge excuteJSWithObj:nil function:@"sayHello('James')"];
+  [_bridge excuteJSWithFunction:@"sayHello('James')"];
 }
 
 @end

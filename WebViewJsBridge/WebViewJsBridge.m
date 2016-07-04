@@ -24,7 +24,7 @@
 }
 
 + (instancetype)bridgeForWebView:(UIWebView*)webView webViewDelegate:(NSObject<UIWebViewDelegate>*)webViewDelegate resourceBundle:(NSBundle*)bundle {
-  WebViewJsBridge* bridge = [[[self class] alloc] init];
+  WebViewJsBridge *bridge = [[[self class] alloc] init];
   [bridge _platformSpecificSetup:webView webViewDelegate:webViewDelegate resourceBundle:bundle];
   return bridge;
 }
@@ -66,7 +66,7 @@
         [methodList appendString:@"\","];
       }
     }
-    if (methodList.length>0) {
+    if (methodList.length > 0) {
       [methodList deleteCharactersInRange:NSMakeRange(methodList.length - 1, 1)];
     }
     free(methods);
