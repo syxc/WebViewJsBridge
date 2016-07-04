@@ -11,11 +11,11 @@
 @implementation TestBridge
 
 - (void)test1:(NSArray *)msg {
-    NSLog(@"test1:%@", msg);
+  NSLog(@"test1:%@", msg);
 }
 
 - (void)test2 {
-    NSLog(@"test2");
+  NSLog(@"test2");
 }
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C6B43AB1D2A6091000FFC85 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C6B43A91D2A6091000FFC85 /* Launch Screen.storyboard */; };
 		BF3C761318EBE1D5006C5249 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3C761218EBE1D5006C5249 /* Foundation.framework */; };
 		BF3C761518EBE1D5006C5249 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3C761418EBE1D5006C5249 /* CoreGraphics.framework */; };
 		BF3C761718EBE1D5006C5249 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3C761618EBE1D5006C5249 /* UIKit.framework */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C6B43AA1D2A6091000FFC85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "WebViewJsBridge/Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BF3C760F18EBE1D5006C5249 /* WebViewJsBridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebViewJsBridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3C761218EBE1D5006C5249 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BF3C761418EBE1D5006C5249 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -126,6 +128,7 @@
 				BF3C762118EBE1D5006C5249 /* AppDelegate.h */,
 				BF3C762218EBE1D5006C5249 /* AppDelegate.m */,
 				BF3C762418EBE1D5006C5249 /* Main.storyboard */,
+				4C6B43A91D2A6091000FFC85 /* Launch Screen.storyboard */,
 				BF3C762718EBE1D5006C5249 /* ViewController.h */,
 				BF3C762818EBE1D5006C5249 /* ViewController.m */,
 				BF3C762A18EBE1D5006C5249 /* Images.xcassets */,
@@ -252,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C6B43AB1D2A6091000FFC85 /* Launch Screen.storyboard in Resources */,
 				BF3C765218EBE473006C5249 /* WebViewJsBridge.js in Resources */,
 				BF3C762B18EBE1D5006C5249 /* Images.xcassets in Resources */,
 				BF3C761D18EBE1D5006C5249 /* InfoPlist.strings in Resources */,
@@ -302,6 +306,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4C6B43A91D2A6091000FFC85 /* Launch Screen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C6B43AA1D2A6091000FFC85 /* Base */,
+			);
+			name = "Launch Screen.storyboard";
+			path = ..;
+			sourceTree = "<group>";
+		};
 		BF3C761B18EBE1D5006C5249 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -361,7 +374,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -393,7 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -403,10 +416,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WebViewJsBridge/WebViewJsBridge-Prefix.pch";
 				INFOPLIST_FILE = "WebViewJsBridge/WebViewJsBridge-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -416,10 +429,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WebViewJsBridge/WebViewJsBridge-Prefix.pch";
 				INFOPLIST_FILE = "WebViewJsBridge/WebViewJsBridge-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -484,6 +497,7 @@
 				BF3C764318EBE1D5006C5249 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BF3C764418EBE1D5006C5249 /* Build configuration list for PBXNativeTarget "WebViewJsBridgeTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +506,7 @@
 				BF3C764618EBE1D5006C5249 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
