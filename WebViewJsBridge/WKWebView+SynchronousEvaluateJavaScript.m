@@ -10,7 +10,7 @@
 
 @implementation WKWebView (SynchronousEvaluateJavaScript)
 
-- (nullable NSString *)stringByEvaluatingJavaScriptFromString:(NSString *)script {
+- (NSString * _Nullable)stringByEvaluatingJavaScriptFromString:(NSString * _Nullable)script {
   __block NSString *resultString = nil;
   __block BOOL finished = NO;
   

@@ -54,46 +54,6 @@
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
   if (webView != _webView) { return; }
   
-  /* [webView evaluateJavaScript:[NSString stringWithFormat:@"typeof window.%@ == 'object'", kBridgeName] completionHandler:^(id _Nullable data, NSError * _Nullable error) {
-    if (error) {
-      NSLog(@"error:%@", error.localizedDescription);
-      return;
-    }
-    // is js insert
-    if ([data isKindOfClass:[NSNumber class]]) {
-      NSLog(@"data:%@", data);
-      // js:'!(data == true)'
-      if ((BOOL)data == YES) {
-        // get class method dynamically
-        unsigned int methodCount = 0;
-        Method *methods = class_copyMethodList([self class], &methodCount);
-        NSMutableString *methodList = [NSMutableString string];
-        @autoreleasepool {
-          for (int i = 0; i < methodCount; i++) {
-            NSString *methodName = [NSString stringWithCString:sel_getName(method_getName(methods[i])) encoding:NSUTF8StringEncoding];
-            // 防止隐藏的系统方法名包含“.”导致js报错
-            if ([methodName rangeOfString:@"."].location != NSNotFound) {
-              continue;
-            }
-            [methodList appendString:@"\""];
-            [methodList appendString:[methodName stringByReplacingOccurrencesOfString:@":" withString:@""]];
-            [methodList appendString:@"\","];
-          }
-        }
-        if (methodList.length > 0) {
-          [methodList deleteCharactersInRange:NSMakeRange(methodList.length - 1, 1)];
-        }
-        free(methods);
-        NSBundle *bundle = _resourceBundle ? _resourceBundle : [NSBundle mainBundle];
-        NSString *filePath = [bundle pathForResource:@"WebViewJsBridge" ofType:@"js"];
-        NSString *js = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-        [webView evaluateJavaScript:[NSString stringWithFormat:js, methodList] completionHandler:^(id _Nullable result, NSError * _Nullable error) {
-          NSLog(@"result:%@", result);
-        }];
-      }
-    }
-  }]; */
-  
   // is js insert
   if (![[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"typeof window.%@ == 'object'", kBridgeName]] isEqualToString:@"true"]) {
     // get class method dynamically
@@ -204,7 +164,7 @@
 
 // 执行js方法
 - (void)excuteJS:(NSString *)script {
-  [self _evaluateJavascript:script];
+  [self _evaluateJavaScript:script];
 }
 
 - (void)excuteJSWithFunction:(NSString *)function {
@@ -219,13 +179,9 @@
   [self excuteJS:js];
 }
 
-- (void)_evaluateJavascript:(NSString *)script {
+- (void)_evaluateJavaScript:(NSString *)script {
   if (!script) { return; }
-  [self.webView evaluateJavaScript:script completionHandler:^(id _Nullable data, NSError * _Nullable error) {
-    if (!error) {
-      NSLog(@"data=%@", data);
-    }
-  }];
+  [self.webView evaluateJavaScript:script completionHandler:nil];
 }
 
 @end

@@ -11,7 +11,7 @@
 
 @interface ExampleUIWebViewController () <TestBridgeDelegate>
 
-@property (strong, nonatomic) UIWebView *webview;
+@property (strong, nonatomic) UIWebView *webView;
 
 @property TestBridge *bridge;
 
@@ -23,17 +23,17 @@
   [super viewDidLoad];
   self.navigationItem.title = NSStringFromClass([self class]);
   
-  _webview = [[UIWebView alloc] initWithFrame:self.view.bounds];
-  [self.view addSubview:_webview];
+  _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+  [self.view addSubview:_webView];
   
   // 设置oc和js的桥接
-  _bridge = [TestBridge bridgeForWebView:_webview webViewDelegate:self];
+  _bridge = [TestBridge bridgeForWebView:_webView webViewDelegate:self];
   _bridge.delegate = self;
   // test only
   NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"ExampleApp" ofType:@"html"];
   NSString *appHtml = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
   NSURL *baseURL = [NSURL fileURLWithPath:htmlPath];
-  [_webview loadHTMLString:appHtml baseURL:baseURL];
+  [_webView loadHTMLString:appHtml baseURL:baseURL];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,10 +41,13 @@
 }
 
 - (void)dealloc {
-  _webview = nil;
+  if (_webView) {
+    _webView.delegate = nil;
+    _webView = nil;
+  }
   _bridge.delegate = nil;
-  _webview.delegate = nil;
 }
+
 
 #pragma mark - TestBridgeDelegate
 

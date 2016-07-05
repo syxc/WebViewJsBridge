@@ -29,6 +29,7 @@
   return bridge;
 }
 
+
 #pragma mark - init & dealloc
 
 - (void)_platformSpecificSetup:(UIWebView*)webView webViewDelegate:(id<UIWebViewDelegate>)webViewDelegate resourceBundle:(NSBundle*)bundle {
@@ -45,10 +46,12 @@
   _resourceBundle = nil;
 }
 
+
 #pragma mark - UIWebView Delegate
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
   if (webView != _webView) { return; }
+  
   // is js insert
   if (![[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"typeof window.%@ == 'object'", kBridgeName]] isEqualToString:@"true"]) {
     // get class method dynamically
@@ -134,18 +137,12 @@
   }
 }
 
+
 #pragma mark - call js
 
 // 执行js方法
 - (void)excuteJS:(NSString *)script {
-  if (script) {
-    if ([JSContext class]) {
-      JSContext *context = [self.webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-      [context evaluateScript:script];
-    } else {
-      [self.webView stringByEvaluatingJavaScriptFromString:script];
-    }
-  }
+  [self _evaluateJavaScript:script];
 }
 
 - (void)excuteJSWithFunction:(NSString *)function {
@@ -158,6 +155,16 @@
     js = [NSString stringWithFormat:@"%@.%@", obj, function];
   }
   [self excuteJS:js];
+}
+
+- (void)_evaluateJavaScript:(NSString *)script {
+  if (!script) { return; }
+  if ([JSContext class]) {
+    JSContext *context = [self.webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    [context evaluateScript:script];
+  } else {
+    [self.webView stringByEvaluatingJavaScriptFromString:script];
+  }
 }
 
 @end
