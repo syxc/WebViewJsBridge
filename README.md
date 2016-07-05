@@ -12,7 +12,7 @@ How to Use
 
 Support
 ===============
-- WebViewJsBridge  iOS7.0+
-- WKWebViewJsBridge  iOS8.0+
+- WebViewJsBridge: iOS7.0+
+- WKWebViewJsBridge: iOS8.0+
 
 Good luck~
