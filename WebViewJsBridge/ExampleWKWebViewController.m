@@ -8,6 +8,7 @@
 
 #import "ExampleWKWebViewController.h"
 #import "WKTestBridge.h"
+#import "SearchViewController.h"
 
 static NSString *const kScriptMessageName = @"WKWebViewDemo";
 
@@ -25,11 +26,12 @@ static NSString *const kScriptMessageName = @"WKWebViewDemo";
   [super viewDidLoad];
   self.navigationItem.title = NSStringFromClass([self class]);
   
-  _webView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:({
-    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
-    [self addAllScriptMessageHandle:config];
-    config;
-  })];
+  WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+  WKUserContentController *controller = [[WKUserContentController alloc] init];
+  configuration.userContentController = controller;
+  [self addAllScriptMessageHandle:configuration];
+  
+  _webView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:configuration];
   _webView.navigationDelegate = self;
   [self.view addSubview:_webView];
   
@@ -41,6 +43,14 @@ static NSString *const kScriptMessageName = @"WKWebViewDemo";
   NSString *appHtml = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
   NSURL *baseURL = [NSURL fileURLWithPath:htmlPath];
   [_webView loadHTMLString:appHtml baseURL:baseURL];
+  
+  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchItemTaped)];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+  [super viewDidDisappear:animated];
+  /* 避免因循环引用造成的内存泄漏 */
+  [self removeAllScriptMessageHandle:_webView.configuration];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,6 +101,15 @@ static NSString *const kScriptMessageName = @"WKWebViewDemo";
 - (void)test3 {
   NSLog(@"test3");
   [_bridge excuteJSWithFunction:@"sendMessage()"];
+}
+
+
+#pragma mark - Other methods
+
+- (void)searchItemTaped {
+  SearchViewController *vc = [[SearchViewController alloc] init];
+  vc.hidesBottomBarWhenPushed = YES;
+  [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

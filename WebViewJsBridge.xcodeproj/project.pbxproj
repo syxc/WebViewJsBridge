@@ -16,6 +16,7 @@
 		4C6B43D61D2BB2AE000FFC85 /* WebViewJsBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6B43D01D2BB2AE000FFC85 /* WebViewJsBridge.m */; };
 		4C6B43D71D2BB2AE000FFC85 /* WKWebView+SynchronousEvaluateJavaScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6B43D21D2BB2AE000FFC85 /* WKWebView+SynchronousEvaluateJavaScript.m */; };
 		4C6B43D81D2BB2AE000FFC85 /* WKWebViewJsBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6B43D41D2BB2AE000FFC85 /* WKWebViewJsBridge.m */; };
+		4C6D9B1A1D2BD1F600A08DBC /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D9B191D2BD1F600A08DBC /* SearchViewController.m */; };
 		BF3C761318EBE1D5006C5249 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3C761218EBE1D5006C5249 /* Foundation.framework */; };
 		BF3C761518EBE1D5006C5249 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3C761418EBE1D5006C5249 /* CoreGraphics.framework */; };
 		BF3C761718EBE1D5006C5249 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3C761618EBE1D5006C5249 /* UIKit.framework */; };
@@ -59,6 +60,8 @@
 		4C6B43D21D2BB2AE000FFC85 /* WKWebView+SynchronousEvaluateJavaScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+SynchronousEvaluateJavaScript.m"; sourceTree = "<group>"; };
 		4C6B43D31D2BB2AE000FFC85 /* WKWebViewJsBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewJsBridge.h; sourceTree = "<group>"; };
 		4C6B43D41D2BB2AE000FFC85 /* WKWebViewJsBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewJsBridge.m; sourceTree = "<group>"; };
+		4C6D9B181D2BD1F600A08DBC /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		4C6D9B191D2BD1F600A08DBC /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		BF3C760F18EBE1D5006C5249 /* WebViewJsBridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebViewJsBridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3C761218EBE1D5006C5249 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BF3C761418EBE1D5006C5249 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -121,6 +124,8 @@
 				4C6B43B91D2B5F98000FFC85 /* ExampleUIWebViewController.m */,
 				4C6B43BB1D2B5FAE000FFC85 /* ExampleWKWebViewController.h */,
 				4C6B43BC1D2B5FAE000FFC85 /* ExampleWKWebViewController.m */,
+				4C6D9B181D2BD1F600A08DBC /* SearchViewController.h */,
+				4C6D9B191D2BD1F600A08DBC /* SearchViewController.m */,
 			);
 			name = Example;
 			sourceTree = "<group>";
@@ -311,6 +316,7 @@
 			files = (
 				4C6B43B61D2B5DD6000FFC85 /* WKTestBridge.m in Sources */,
 				BF3C762318EBE1D5006C5249 /* AppDelegate.m in Sources */,
+				4C6D9B1A1D2BD1F600A08DBC /* SearchViewController.m in Sources */,
 				BF3C765118EBE261006C5249 /* TestBridge.m in Sources */,
 				4C6B43D71D2BB2AE000FFC85 /* WKWebView+SynchronousEvaluateJavaScript.m in Sources */,
 				4C6B43BD1D2B5FAE000FFC85 /* ExampleWKWebViewController.m in Sources */,
