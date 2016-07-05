@@ -40,9 +40,9 @@
 }
 
 - (void)dealloc {
+  _webViewDelegate = nil;
   _webView.delegate = nil;
   _webView = nil;
-  _webViewDelegate = nil;
   _resourceBundle = nil;
 }
 
