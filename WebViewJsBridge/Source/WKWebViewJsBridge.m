@@ -141,6 +141,15 @@
   }
 }
 
+- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
+  if (webView != _webView) { return; }
+  
+  __strong typeof(_webViewDelegate) strongDelegate = _webViewDelegate;
+  if (strongDelegate && [strongDelegate respondsToSelector:@selector(webView:didCommitNavigation:)]) {
+    [strongDelegate webView:webView didCommitNavigation:navigation];
+  }
+}
+
 - (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
   if (webView != _webView) { return; }
   
