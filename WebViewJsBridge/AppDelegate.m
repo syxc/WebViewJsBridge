@@ -7,12 +7,33 @@
 //
 
 #import "AppDelegate.h"
+#import "ExampleUIWebViewController.h"
+#import "ExampleWKWebViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  // Override point for customization after application launch.
+  // 1. Create the UIWebView example
+  UINavigationController *uiWebViewNav = [[UINavigationController alloc]
+                                          initWithRootViewController:[ExampleUIWebViewController new]];
+  uiWebViewNav.tabBarItem.title = @"UIWebView";
+  
+  // 2. Create the tab footer and add the UIWebView example
+  UITabBarController *tabBarController = [[UITabBarController alloc] init];
+  [tabBarController addChildViewController:uiWebViewNav];
+  
+  // 3. Create the WKWebView example for devices >= iOS 8
+  if([WKWebView class]) {
+    UINavigationController *wkWebViewNav = [[UINavigationController alloc]
+                                            initWithRootViewController:[ExampleWKWebViewController new]];
+    wkWebViewNav.tabBarItem.title = @"WKWebView";
+    [tabBarController addChildViewController:wkWebViewNav];
+  }
+  
+  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  self.window.rootViewController = tabBarController;
+  [self.window makeKeyAndVisible];
   return YES;
 }
 

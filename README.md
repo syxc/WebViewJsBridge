@@ -10,4 +10,9 @@ How to Use
 3. Implement your methods in the subclass
 4. Make sure the arguments can only be void or an array
 
+Support
+===============
+- WebViewJsBridge  iOS7.0+
+- WKWebViewJsBridge  iOS8.0+
+
 Good luck~

@@ -1,14 +1,14 @@
 //
-//  TestBridge.m
+//  WKTestBridge.m
 //  WebViewJsBridge
 //
-//  Created by zhaoxy on 14-4-2.
-//  Copyright (c) 2014年 tsinghua. All rights reserved.
+//  Created by syxc on 7/5/16.
+//  Copyright © 2016 tsinghua. All rights reserved.
 //
 
-#import "TestBridge.h"
+#import "WKTestBridge.h"
 
-@implementation TestBridge
+@implementation WKTestBridge
 
 - (void)test1:(NSArray *)data {
   if (_delegate && [_delegate respondsToSelector:@selector(test1:)]) {

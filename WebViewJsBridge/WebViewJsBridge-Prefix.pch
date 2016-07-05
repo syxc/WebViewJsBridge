@@ -11,6 +11,16 @@
 #endif
 
 #ifdef __OBJC__
-    #import <UIKit/UIKit.h>
-    #import <Foundation/Foundation.h>
+  #import <UIKit/UIKit.h>
+  #import <Foundation/Foundation.h>
+#endif
+
+#ifdef DEBUG
+  #ifndef NSLog
+  #define NSLog(FORMAT, ...) fprintf(stderr, "%s:%d\t\n%s\n\n", [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+  #endif
+#else
+  #ifndef NSLog
+  #define NSLog(FORMAT, ...) nil
+  #endif
 #endif

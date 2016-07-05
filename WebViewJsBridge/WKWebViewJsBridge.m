@@ -8,15 +8,14 @@
 
 #import "WKWebViewJsBridge.h"
 
-#if defined(supportsWKWebKit)
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
 
 #import <objc/runtime.h>
-#import <JavaScriptCore/JavaScriptCore.h>
 
 @interface WKWebViewJsBridge ()
 
-@property (nonatomic, weak) id webViewDelegate;
-@property (nonatomic, weak) NSBundle *resourceBundle;
+@property (weak, nonatomic) id webViewDelegate;
+@property (weak, nonatomic) NSBundle *resourceBundle;
 
 @end
 
@@ -46,6 +45,7 @@
   _webView = nil;
   _webViewDelegate = nil;
   _webView.navigationDelegate = nil;
+  _resourceBundle = nil;
 }
 
 
@@ -54,10 +54,16 @@
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
   if (webView != _webView) { return; }
   
-  [webView evaluateJavaScript:[NSString stringWithFormat:@"typeof window.%@ == 'object'", kBridgeName] completionHandler:^(id _Nullable data, NSError * _Nullable error) {
-    if (!error) {
-      // is js insert
-      if (![data isEqualToString:@"true"]) {
+  /* [webView evaluateJavaScript:[NSString stringWithFormat:@"typeof window.%@ == 'object'", kBridgeName] completionHandler:^(id _Nullable data, NSError * _Nullable error) {
+    if (error) {
+      NSLog(@"error:%@", error.localizedDescription);
+      return;
+    }
+    // is js insert
+    if ([data isKindOfClass:[NSNumber class]]) {
+      NSLog(@"data:%@", data);
+      // js:'!(data == true)'
+      if ((BOOL)data == YES) {
         // get class method dynamically
         unsigned int methodCount = 0;
         Method *methods = class_copyMethodList([self class], &methodCount);
@@ -81,10 +87,40 @@
         NSBundle *bundle = _resourceBundle ? _resourceBundle : [NSBundle mainBundle];
         NSString *filePath = [bundle pathForResource:@"WebViewJsBridge" ofType:@"js"];
         NSString *js = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-        [webView evaluateJavaScript:[NSString stringWithFormat:js, methodList] completionHandler:nil];
+        [webView evaluateJavaScript:[NSString stringWithFormat:js, methodList] completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+          NSLog(@"result:%@", result);
+        }];
       }
     }
-  }];
+  }]; */
+  
+  // is js insert
+  if (![[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"typeof window.%@ == 'object'", kBridgeName]] isEqualToString:@"true"]) {
+    // get class method dynamically
+    unsigned int methodCount = 0;
+    Method *methods = class_copyMethodList([self class], &methodCount);
+    NSMutableString *methodList = [NSMutableString string];
+    @autoreleasepool {
+      for (int i = 0; i < methodCount; i++) {
+        NSString *methodName = [NSString stringWithCString:sel_getName(method_getName(methods[i])) encoding:NSUTF8StringEncoding];
+        // 防止隐藏的系统方法名包含“.”导致js报错
+        if ([methodName rangeOfString:@"."].location != NSNotFound) {
+          continue;
+        }
+        [methodList appendString:@"\""];
+        [methodList appendString:[methodName stringByReplacingOccurrencesOfString:@":" withString:@""]];
+        [methodList appendString:@"\","];
+      }
+    }
+    if (methodList.length > 0) {
+      [methodList deleteCharactersInRange:NSMakeRange(methodList.length - 1, 1)];
+    }
+    free(methods);
+    NSBundle *bundle = _resourceBundle ? _resourceBundle : [NSBundle mainBundle];
+    NSString *filePath = [bundle pathForResource:@"WebViewJsBridge" ofType:@"js"];
+    NSString *js = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:js, methodList]];
+  }
   
   __strong typeof(_webViewDelegate) strongDelegate = _webViewDelegate;
   if (strongDelegate && [strongDelegate respondsToSelector:@selector(webView:didFinishNavigation:)]) {
@@ -102,7 +138,7 @@
 }
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
-  if (webView != _webView) { return ; }
+  if (webView != _webView) { return; }
   
   NSURL *url = navigationAction.request.URL;
   NSString *requestString = [url absoluteString];
@@ -184,18 +220,12 @@
 }
 
 - (void)_evaluateJavascript:(NSString *)script {
-  if (script) {
-    if ([JSContext class]) {
-      JSContext *context = [self.webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-      [context evaluateScript:script];
-    } else {
-      [self.webView evaluateJavaScript:script completionHandler:^(id _Nullable data, NSError * _Nullable error) {
-        if (!error) {
-          NSLog(@"data=%@", data);
-        }
-      }];
+  if (!script) { return; }
+  [self.webView evaluateJavaScript:script completionHandler:^(id _Nullable data, NSError * _Nullable error) {
+    if (!error) {
+      NSLog(@"data=%@", data);
     }
-  }
+  }];
 }
 
 @end

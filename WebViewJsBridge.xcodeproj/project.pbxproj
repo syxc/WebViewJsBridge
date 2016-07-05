@@ -10,14 +10,16 @@
 		4C6B43AB1D2A6091000FFC85 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C6B43A91D2A6091000FFC85 /* Launch Screen.storyboard */; };
 		4C6B43B01D2A7073000FFC85 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6B43AF1D2A7073000FFC85 /* JavaScriptCore.framework */; };
 		4C6B43B31D2A7542000FFC85 /* WKWebViewJsBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6B43B21D2A7542000FFC85 /* WKWebViewJsBridge.m */; };
+		4C6B43B61D2B5DD6000FFC85 /* WKTestBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6B43B51D2B5DD6000FFC85 /* WKTestBridge.m */; };
+		4C6B43BA1D2B5F98000FFC85 /* ExampleUIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6B43B91D2B5F98000FFC85 /* ExampleUIWebViewController.m */; };
+		4C6B43BD1D2B5FAE000FFC85 /* ExampleWKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6B43BC1D2B5FAE000FFC85 /* ExampleWKWebViewController.m */; };
+		4C6B43C01D2BA303000FFC85 /* WKWebView+SynchronousEvaluateJavaScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6B43BF1D2BA303000FFC85 /* WKWebView+SynchronousEvaluateJavaScript.m */; };
 		BF3C761318EBE1D5006C5249 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3C761218EBE1D5006C5249 /* Foundation.framework */; };
 		BF3C761518EBE1D5006C5249 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3C761418EBE1D5006C5249 /* CoreGraphics.framework */; };
 		BF3C761718EBE1D5006C5249 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3C761618EBE1D5006C5249 /* UIKit.framework */; };
 		BF3C761D18EBE1D5006C5249 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF3C761B18EBE1D5006C5249 /* InfoPlist.strings */; };
 		BF3C761F18EBE1D5006C5249 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3C761E18EBE1D5006C5249 /* main.m */; };
 		BF3C762318EBE1D5006C5249 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3C762218EBE1D5006C5249 /* AppDelegate.m */; };
-		BF3C762618EBE1D5006C5249 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3C762418EBE1D5006C5249 /* Main.storyboard */; };
-		BF3C762918EBE1D5006C5249 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3C762818EBE1D5006C5249 /* ViewController.m */; };
 		BF3C762B18EBE1D5006C5249 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF3C762A18EBE1D5006C5249 /* Images.xcassets */; };
 		BF3C763218EBE1D5006C5249 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3C763118EBE1D5006C5249 /* XCTest.framework */; };
 		BF3C763318EBE1D5006C5249 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3C761218EBE1D5006C5249 /* Foundation.framework */; };
@@ -46,6 +48,14 @@
 		4C6B43AF1D2A7073000FFC85 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		4C6B43B11D2A7542000FFC85 /* WKWebViewJsBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewJsBridge.h; sourceTree = "<group>"; };
 		4C6B43B21D2A7542000FFC85 /* WKWebViewJsBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewJsBridge.m; sourceTree = "<group>"; };
+		4C6B43B41D2B5DD6000FFC85 /* WKTestBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTestBridge.h; sourceTree = "<group>"; };
+		4C6B43B51D2B5DD6000FFC85 /* WKTestBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTestBridge.m; sourceTree = "<group>"; };
+		4C6B43B81D2B5F98000FFC85 /* ExampleUIWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleUIWebViewController.h; sourceTree = "<group>"; };
+		4C6B43B91D2B5F98000FFC85 /* ExampleUIWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleUIWebViewController.m; sourceTree = "<group>"; };
+		4C6B43BB1D2B5FAE000FFC85 /* ExampleWKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleWKWebViewController.h; sourceTree = "<group>"; };
+		4C6B43BC1D2B5FAE000FFC85 /* ExampleWKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleWKWebViewController.m; sourceTree = "<group>"; };
+		4C6B43BE1D2BA303000FFC85 /* WKWebView+SynchronousEvaluateJavaScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKWebView+SynchronousEvaluateJavaScript.h"; sourceTree = "<group>"; };
+		4C6B43BF1D2BA303000FFC85 /* WKWebView+SynchronousEvaluateJavaScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+SynchronousEvaluateJavaScript.m"; sourceTree = "<group>"; };
 		BF3C760F18EBE1D5006C5249 /* WebViewJsBridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebViewJsBridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3C761218EBE1D5006C5249 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BF3C761418EBE1D5006C5249 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -56,9 +66,6 @@
 		BF3C762018EBE1D5006C5249 /* WebViewJsBridge-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WebViewJsBridge-Prefix.pch"; sourceTree = "<group>"; };
 		BF3C762118EBE1D5006C5249 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BF3C762218EBE1D5006C5249 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BF3C762518EBE1D5006C5249 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BF3C762718EBE1D5006C5249 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BF3C762818EBE1D5006C5249 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BF3C762A18EBE1D5006C5249 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BF3C763018EBE1D5006C5249 /* WebViewJsBridgeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebViewJsBridgeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3C763118EBE1D5006C5249 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -98,6 +105,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C6B43B71D2B5F77000FFC85 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				4C6B43A91D2A6091000FFC85 /* Launch Screen.storyboard */,
+				BF3C762118EBE1D5006C5249 /* AppDelegate.h */,
+				BF3C762218EBE1D5006C5249 /* AppDelegate.m */,
+				BF3C764818EBE231006C5249 /* ExampleApp.html */,
+				BF3C764F18EBE261006C5249 /* TestBridge.h */,
+				BF3C765018EBE261006C5249 /* TestBridge.m */,
+				4C6B43AC1D2A6842000FFC85 /* TestBridgeDelegate.h */,
+				4C6B43B41D2B5DD6000FFC85 /* WKTestBridge.h */,
+				4C6B43B51D2B5DD6000FFC85 /* WKTestBridge.m */,
+				4C6B43B81D2B5F98000FFC85 /* ExampleUIWebViewController.h */,
+				4C6B43B91D2B5F98000FFC85 /* ExampleUIWebViewController.m */,
+				4C6B43BB1D2B5FAE000FFC85 /* ExampleWKWebViewController.h */,
+				4C6B43BC1D2B5FAE000FFC85 /* ExampleWKWebViewController.m */,
+			);
+			name = Example;
+			sourceTree = "<group>";
+		};
 		BF3C760618EBE1D5006C5249 = {
 			isa = PBXGroup;
 			children = (
@@ -132,13 +159,8 @@
 		BF3C761818EBE1D5006C5249 /* WebViewJsBridge */ = {
 			isa = PBXGroup;
 			children = (
+				4C6B43B71D2B5F77000FFC85 /* Example */,
 				BF3C764718EBE223006C5249 /* Bridge */,
-				BF3C762118EBE1D5006C5249 /* AppDelegate.h */,
-				BF3C762218EBE1D5006C5249 /* AppDelegate.m */,
-				BF3C762418EBE1D5006C5249 /* Main.storyboard */,
-				4C6B43A91D2A6091000FFC85 /* Launch Screen.storyboard */,
-				BF3C762718EBE1D5006C5249 /* ViewController.h */,
-				BF3C762818EBE1D5006C5249 /* ViewController.m */,
 				BF3C762A18EBE1D5006C5249 /* Images.xcassets */,
 				BF3C761918EBE1D5006C5249 /* Supporting Files */,
 			);
@@ -177,15 +199,13 @@
 		BF3C764718EBE223006C5249 /* Bridge */ = {
 			isa = PBXGroup;
 			children = (
-				BF3C764818EBE231006C5249 /* ExampleApp.html */,
 				4C6B43B11D2A7542000FFC85 /* WKWebViewJsBridge.h */,
 				4C6B43B21D2A7542000FFC85 /* WKWebViewJsBridge.m */,
 				BF3C764918EBE231006C5249 /* WebViewJsBridge.h */,
 				BF3C764A18EBE231006C5249 /* WebViewJsBridge.m */,
 				BF3C764B18EBE231006C5249 /* WebViewJsBridge.js */,
-				BF3C764F18EBE261006C5249 /* TestBridge.h */,
-				BF3C765018EBE261006C5249 /* TestBridge.m */,
-				4C6B43AC1D2A6842000FFC85 /* TestBridgeDelegate.h */,
+				4C6B43BE1D2BA303000FFC85 /* WKWebView+SynchronousEvaluateJavaScript.h */,
+				4C6B43BF1D2BA303000FFC85 /* WKWebView+SynchronousEvaluateJavaScript.m */,
 			);
 			name = Bridge;
 			sourceTree = "<group>";
@@ -270,7 +290,6 @@
 				BF3C765218EBE473006C5249 /* WebViewJsBridge.js in Resources */,
 				BF3C762B18EBE1D5006C5249 /* Images.xcassets in Resources */,
 				BF3C761D18EBE1D5006C5249 /* InfoPlist.strings in Resources */,
-				BF3C762618EBE1D5006C5249 /* Main.storyboard in Resources */,
 				BF3C764C18EBE231006C5249 /* ExampleApp.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,11 +309,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF3C762918EBE1D5006C5249 /* ViewController.m in Sources */,
+				4C6B43B61D2B5DD6000FFC85 /* WKTestBridge.m in Sources */,
 				BF3C762318EBE1D5006C5249 /* AppDelegate.m in Sources */,
+				4C6B43C01D2BA303000FFC85 /* WKWebView+SynchronousEvaluateJavaScript.m in Sources */,
 				BF3C765118EBE261006C5249 /* TestBridge.m in Sources */,
+				4C6B43BD1D2B5FAE000FFC85 /* ExampleWKWebViewController.m in Sources */,
 				4C6B43B31D2A7542000FFC85 /* WKWebViewJsBridge.m in Sources */,
 				BF3C761F18EBE1D5006C5249 /* main.m in Sources */,
+				4C6B43BA1D2B5F98000FFC85 /* ExampleUIWebViewController.m in Sources */,
 				BF3C764D18EBE231006C5249 /* WebViewJsBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,14 +355,6 @@
 				BF3C761C18EBE1D5006C5249 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		BF3C762418EBE1D5006C5249 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BF3C762518EBE1D5006C5249 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		BF3C763A18EBE1D5006C5249 /* InfoPlist.strings */ = {
@@ -386,7 +400,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -418,7 +432,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -431,7 +445,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WebViewJsBridge/WebViewJsBridge-Prefix.pch";
 				INFOPLIST_FILE = "WebViewJsBridge/WebViewJsBridge-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -444,7 +458,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WebViewJsBridge/WebViewJsBridge-Prefix.pch";
 				INFOPLIST_FILE = "WebViewJsBridge/WebViewJsBridge-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

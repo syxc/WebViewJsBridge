@@ -14,4 +14,6 @@
 
 - (void)test2;
 
+- (void)test3;
+
 @end

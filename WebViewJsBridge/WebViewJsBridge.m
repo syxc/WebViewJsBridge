@@ -12,8 +12,8 @@
 
 @interface WebViewJsBridge ()
 
-@property (nonatomic, weak) id webViewDelegate;
-@property (nonatomic, weak) NSBundle *resourceBundle;
+@property (weak, nonatomic) id webViewDelegate;
+@property (weak, nonatomic) NSBundle *resourceBundle;
 
 @end
 
@@ -42,6 +42,7 @@
   _webView.delegate = nil;
   _webView = nil;
   _webViewDelegate = nil;
+  _resourceBundle = nil;
 }
 
 #pragma mark - UIWebView Delegate

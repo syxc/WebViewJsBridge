@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>WebViewJavascriptBridge Demo</title>
   <style type='text/css'>
     html { font-family:Helvetica; color:#222; }
@@ -37,7 +38,7 @@
     e.preventDefault();
     var data = 'Hello from JS button';
     log('JS sending message', data);
-    window.external.test1(data, 'haha');
+    window.external.test1(data);
   }
 
   document.body.appendChild(document.createElement('br'));
@@ -51,7 +52,15 @@
   }
 
   function sayHello(name) {
-    alert('Hi,' + name + ",Nice to meet you.");
+    log('Hi,' + name + ",Nice to meet you.");
+    window.external.test3();
+  }
+
+  function sendMessage() {
+    log('Post message from native');
+    // WKWebView example, for devices >= iOS 8
+    webkit.messageHandlers.WKWebViewDemo.postMessage("From js message");
+    log('JavaScript message send');
   }
   </script>
 </body>
