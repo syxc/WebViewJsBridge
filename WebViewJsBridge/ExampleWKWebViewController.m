@@ -8,6 +8,7 @@
 
 #import "ExampleWKWebViewController.h"
 #import "WKTestBridge.h"
+#import "WeakScriptMessageDelegate.h"
 #import "SearchViewController.h"
 
 static NSString *const kScriptMessageName = @"WKWebViewDemo";
@@ -26,14 +27,14 @@ static NSString *const kScriptMessageName = @"WKWebViewDemo";
   [super viewDidLoad];
   self.navigationItem.title = NSStringFromClass([self class]);
   
-  WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
-  WKUserContentController *controller = [[WKUserContentController alloc] init];
-  configuration.userContentController = controller;
-  [self addAllScriptMessageHandle:configuration];
-  
-  _webView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:configuration];
+  _webView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:({
+    WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+    configuration;
+  })];
   _webView.navigationDelegate = self;
   [self.view addSubview:_webView];
+  
+  [self addAllScriptMessageHandle];
   
   // 设置oc和js的桥接
   _bridge = [WKTestBridge bridgeForWebView:_webView webViewDelegate:self];
@@ -47,12 +48,6 @@ static NSString *const kScriptMessageName = @"WKWebViewDemo";
   self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchItemTaped)];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-  [super viewDidDisappear:animated];
-  /* 避免因循环引用造成的内存泄漏 */
-  [self removeAllScriptMessageHandle:_webView.configuration];
-}
-
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
@@ -60,11 +55,12 @@ static NSString *const kScriptMessageName = @"WKWebViewDemo";
 
 - (void)dealloc {
   if (_webView) {
-    [self removeAllScriptMessageHandle:_webView.configuration];
+    [self removeAllScriptMessageHandle];
     _webView.navigationDelegate = nil;
     _webView = nil;
   }
   _bridge.delegate = nil;
+  _bridge = nil;
 }
 
 
@@ -76,13 +72,13 @@ static NSString *const kScriptMessageName = @"WKWebViewDemo";
   }
 }
 
-- (void)addAllScriptMessageHandle:(WKWebViewConfiguration *)configuration {
-  WKUserContentController *controller = configuration.userContentController;
-  [controller addScriptMessageHandler:self name:kScriptMessageName];
+- (void)addAllScriptMessageHandle {
+  WKUserContentController *controller = _webView.configuration.userContentController;
+  [controller addScriptMessageHandler:[[WeakScriptMessageDelegate alloc] initWithDelegate:self] name:kScriptMessageName];
 }
 
-- (void)removeAllScriptMessageHandle:(WKWebViewConfiguration *)configuration {
-  WKUserContentController *controller = configuration.userContentController;
+- (void)removeAllScriptMessageHandle {
+  WKUserContentController *controller = _webView.configuration.userContentController;
   [controller removeScriptMessageHandlerForName:kScriptMessageName];
 }
 

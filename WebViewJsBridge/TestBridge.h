@@ -11,6 +11,6 @@
 
 @interface TestBridge : WebViewJsBridge
 
-@property id<TestBridgeDelegate> delegate;
+@property (weak, nonatomic) id<TestBridgeDelegate> delegate;
 
 @end

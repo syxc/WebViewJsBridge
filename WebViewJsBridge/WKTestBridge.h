@@ -11,6 +11,6 @@
 
 @interface WKTestBridge : WKWebViewJsBridge
 
-@property id<TestBridgeDelegate> delegate;
+@property (weak, nonatomic) id<TestBridgeDelegate> delegate;
 
 @end

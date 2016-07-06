@@ -7,6 +7,7 @@
 //
 
 #import "SearchViewController.h"
+#import "ExampleWKWebViewController.h"
 
 @interface SearchViewController ()
 
@@ -30,7 +31,7 @@
 #pragma mark - Other methods
 
 - (void)searchItemTaped {
-  SearchViewController *vc = [[SearchViewController alloc] init];
+  ExampleWKWebViewController *vc = [[ExampleWKWebViewController alloc] init];
   vc.hidesBottomBarWhenPushed = YES;
   [self.navigationController pushViewController:vc animated:YES];
 }
